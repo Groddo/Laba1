@@ -1,0 +1,65 @@
+﻿@model Laba1.Models.Opers
+
+@{
+	ViewBag.Title = "Калькулятор";
+}
+<div class="form-wrapper">
+	@using (Html.BeginForm())
+	{
+		@Html.ValidationSummary()
+		<p>1-ый операнд @Html.TextBoxFor(x => x.Oper1, new { @class = "textBoxStyle" })</p>
+		<p>Операция @Html.ListBox("Operation", new[]
+		{
+
+			new SelectListItem() {Text="Сложить", Value="+"},
+			new SelectListItem() {Text="Вычесть", Value="-"},
+			new SelectListItem() {Text="Умножить", Value="*"},
+			new SelectListItem() {Text="Разделить", Value="/"}
+			
+		}, "Choose")</p>
+		<p>2-ой операнд @Html.TextBoxFor(x => x.Oper2, new { @class = "textBoxStyle" })</p>
+		<input type="submit" name="action" value="Вычислить" class="calculator-button" />
+		<input type="submit" name="action" value="Очистить" class="calculator-button"/>
+		
+		<p>@Html.LabelFor(x => x.Result) : @Html.DisplayFor(x=>x.Result)</p>
+
+		@if ((Model != null) && (ViewBag.CheckValue != ""))
+			{
+
+				@if (Convert.ToString(ViewBag.CheckValue)==Convert.ToString(Model.Result))
+				{
+					<p style="color: green;">
+						Результат равен значению @ViewBag.CheckValue!
+					</p>
+				}
+				else if(Convert.ToString(ViewBag.CheckValue)!=Convert.ToString(Model.Result))
+				{
+					<p style="color: red;">
+						Результат не равен заранее заданному значению @ViewBag.CheckValue!
+					</p>
+				} 
+
+			}
+			
+	}
+		@if (Model != null)
+{
+		 var oper1 = Model.Oper1;
+		var oper2 = Model.Oper2;
+		var operation = Model.Operation;
+		var result = Model.Result;
+
+		<div>
+			@Html.ActionLink("Посмотреть результаты", "ResultQuerry","Calculator",null,new{@class="calculator-button"})
+		</div>
+}
+	
+</div>
+@section Footer
+{
+		<div class="centerd-conteiner">
+			Сделал Аксенов Андрей ИСТбд-21
+		</div>
+}
+
+

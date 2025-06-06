@@ -1,0 +1,52 @@
+.textBoxStyle {
+    border: 2px solid #007bff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    outline: none;
+}
+
+    .textBoxStyle:focus {
+        border-color: #0056b3;
+        box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+    }
+
+
+.input-validation-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.validation-summary-errors {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    margin-bottom: 15px;
+    width: 300px;
+    text-align: center;
+    font-weight: bold;
+    color: darkred;
+    border-radius: 6px;
+}
+
+.fullscreen-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Внутренний блок формы */
+.form-wrapper {
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
