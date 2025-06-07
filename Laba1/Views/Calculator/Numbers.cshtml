@@ -42,22 +42,21 @@
 			}
 			
 	}
-		@if (Model != null)
-{
-		 var oper1 = Model.Oper1;
-		var oper2 = Model.Oper2;
-		var operation = Model.Operation;
-		var result = Model.Result;
-
-		<div>
-			@Html.ActionLink("Посмотреть результаты", "ResultQuerry","Calculator",null,new{@class="calculator-button"})
-		</div>
-}
+		@if (ViewBag.Result != "")
+		{
+			var oper1 = Model.Oper1;
+			var oper2 = Model.Oper2;
+			string operation = Model.Operation;
+			float? result = Model.Result;
+					
+			@Html.ActionLink("Посмотреть результаты", "ResultQuerry","Calculator" , new{oper1=oper1, oper2=oper2, operation=operation, result=result})
+			
+		}
 	
 </div>
 @section Footer
 {
-		<div class="centerd-conteiner">
+		<div>
 			Сделал Аксенов Андрей ИСТбд-21
 		</div>
 }
